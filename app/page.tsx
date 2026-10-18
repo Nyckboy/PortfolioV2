@@ -150,7 +150,10 @@ export default function Home() {
 
       <footer className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-6 text-sm text-zinc-500 sm:flex-row sm:justify-between lg:px-8">
         <p>© {new Date().getFullYear()} Mouad Abbassid.</p>
-        <a className="transition hover:text-zinc-950" href="https://github.com/Nyckboy" target="_blank" rel="noreferrer">GitHub</a>
+        <div className="flex gap-4">
+          <a className="transition hover:text-zinc-950" href="https://github.com/Nyckboy" target="_blank" rel="noreferrer">GitHub</a>
+          <a className="transition hover:text-zinc-950" href="https://www.linkedin.com/in/mouadabbassid/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
       </footer>
     </main>
   );
