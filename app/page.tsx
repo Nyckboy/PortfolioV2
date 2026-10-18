@@ -1,27 +1,35 @@
 const projects = [
   {
+    number: "01",
     title: "Polling List Search Platform",
     description:
-      "A client platform that transforms Arabic polling-list PDFs into normalized, searchable PostgreSQL records with asynchronous imports, audit logs, and right-to-left search.",
+      "Transforms Arabic polling-list PDFs into normalized, searchable PostgreSQL records with asynchronous imports, audit logs, and right-to-left search.",
     tech: ["FastAPI", "PostgreSQL", "React", "TypeScript", "Docker", "Nginx"],
+    label: "Data systems",
   },
   {
+    number: "02",
     title: "VPS Monitoring",
     description:
-      "A virtual-server monitoring tool for tracking infrastructure metrics and performance in real time.",
+      "A lightweight infrastructure-monitoring tool for tracking real-time virtual-server metrics and performance.",
     tech: ["Python", "Linux", "VPS"],
+    label: "Infrastructure",
   },
   {
+    number: "03",
     title: "Charity Management Platform",
     description:
-      "A charity-management application with backend architecture and an automated delivery pipeline for reliable deployments.",
+      "A charity-management application shaped around dependable backend architecture and automated delivery.",
     tech: ["Spring Boot", "Jenkins", "Docker", "Nginx"],
+    label: "Delivery systems",
   },
   {
+    number: "04",
     title: "Real-Time Chat Application",
     description:
-      "A network application with bidirectional synchronization and local state persistence for a responsive chat experience.",
+      "A network application with bidirectional synchronization and local state persistence for responsive conversations.",
     tech: ["Node.js", "Socket.io", "SQLite"],
+    label: "Real-time",
   },
 ];
 
@@ -36,124 +44,142 @@ const experience = [
     role: "Full-Stack Developer Intern",
     period: "Jul 2026 — Sep 2026",
     summary:
-      "Built a role-based platform for managing projects, tasks, progress, deliverables, comments, and notifications, supported by Spring Boot services and Jenkins CI/CD automation.",
+      "Role-based project operations platform covering tasks, progress, deliverables, comments, notifications, and CI/CD automation.",
   },
   {
     company: "IT Road",
     role: "Full-Stack Developer Intern",
     period: "Jul 2025 — Sep 2025",
     summary:
-      "Built secure REST APIs with Spring Boot and PostgreSQL, alongside responsive React and TypeScript interfaces.",
+      "Secure Spring Boot APIs and PostgreSQL data models paired with responsive React and TypeScript interfaces.",
   },
 ];
 
 export default function Home() {
   return (
-    <main>
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 lg:px-8">
-        <a className="text-lg font-bold tracking-tight" href="#home" aria-label="Home">MA.</a>
+    <main className="portfolio-shell">
+      <div className="ambient ambient-one" aria-hidden="true" />
+      <div className="ambient ambient-two" aria-hidden="true" />
+      <div className="noise" aria-hidden="true" />
+
+      <header className="site-header">
+        <a className="monogram" href="#home" aria-label="Mouad Abbassid home">
+          M<span>A</span>
+        </a>
+        <p className="header-status"><span /> Portfolio / 2026</p>
         <nav aria-label="Primary navigation">
-          <ul className="flex items-center gap-5 text-sm text-zinc-600 sm:gap-7">
-            <li><a className="transition hover:text-zinc-950" href="#about">About</a></li>
-            <li><a className="transition hover:text-zinc-950" href="#work">Work</a></li>
-            <li><a className="transition hover:text-zinc-950" href="#experience">Experience</a></li>
-            <li><a className="transition hover:text-zinc-950" href="#contact">Contact</a></li>
+          <ul className="site-nav">
+            <li><a href="#about">Profile</a></li>
+            <li><a href="#work">Selected work</a></li>
+            <li><a href="#experience">Experience</a></li>
           </ul>
         </nav>
       </header>
 
-      <section id="home" className="mx-auto grid min-h-[calc(100dvh-81px)] max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.4fr_0.6fr] lg:px-8">
-        <div>
-          <p className="text-sm font-semibold tracking-[0.18em] text-zinc-500 uppercase">Full-stack developer</p>
-          <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-zinc-950 sm:text-7xl lg:text-8xl">Mouad Abbassid</h1>
-          <p className="mt-7 max-w-xl text-lg leading-8 text-zinc-600">Engineering student and full-stack developer building secure, scalable web platforms—from polished interfaces to reliable backend services and automated deployment.</p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a className="rounded-full bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-700" href="#work">View selected work</a>
-            <a className="rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-950 transition hover:border-zinc-950" href="/documents/Mouad_Abbassid_Full_Stack_Resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
+      <section id="home" className="hero-section">
+        <div className="hero-copy">
+          <p className="eyebrow">Full-stack developer / Casablanca, Morocco</p>
+          <h1>
+            <span>Building</span>
+            <span className="outline-word">useful</span>
+            <span>systems.</span>
+          </h1>
+          <p className="hero-intro">
+            I&apos;m Mouad Abbassid, an engineering student and full-stack developer designing reliable software from the interface to the infrastructure beneath it.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-primary" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
+            <a className="button button-quiet" href="/documents/Mouad_Abbassid_Full_Stack_Resume.pdf" target="_blank" rel="noreferrer">Download CV <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <aside className="border-l border-zinc-200 pl-6 sm:pl-8">
-          <p className="text-sm text-zinc-500">Core stack</p>
-          <p className="mt-3 text-2xl font-medium tracking-tight text-zinc-900">React, TypeScript, FastAPI, Spring Boot, PostgreSQL, Docker, and CI/CD.</p>
-          <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-zinc-200 pt-6">
-            <div><dt className="text-sm text-zinc-500">Featured work</dt><dd className="mt-1 text-2xl font-semibold">04</dd></div>
-            <div><dt className="text-sm text-zinc-500">Education</dt><dd className="mt-1 text-2xl font-semibold">EMSI</dd></div>
-          </dl>
-        </aside>
+        <div className="signal-field" aria-label="Mouad Abbassid, full-stack developer">
+          <div className="orbit orbit-one" />
+          <div className="orbit orbit-two" />
+          <div className="signal-core">MA</div>
+          <p className="signal-label label-top">SYSTEMS<br />THINKING</p>
+          <p className="signal-label label-right">INTERFACE<br />CRAFT</p>
+          <p className="signal-label label-bottom">SHIPPED<br />WITH CARE</p>
+        </div>
+        <div className="scroll-mark"><span /> Scroll to explore</div>
       </section>
 
-      <section id="about" className="border-y border-zinc-200 bg-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
-          <p className="text-sm font-semibold tracking-[0.18em] text-zinc-500 uppercase">About me</p>
-          <div>
-            <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.04em] text-zinc-950 sm:text-5xl">I turn complex ideas into clear, dependable digital experiences.</h2>
-            <div className="mt-8 max-w-2xl space-y-5 text-lg leading-8 text-zinc-600">
-              <p>I build role-based web applications and developer tools with a focus on clean architecture, thoughtful interfaces, and dependable delivery.</p>
-              <p>I am currently completing an Engineering Degree in Computer Science at EMSI, Casablanca. Outside development, drawing and reading manhwa keep my creative side active and inform how I approach design and user experience.</p>
-            </div>
-            <ul className="mt-10 flex flex-wrap gap-2" aria-label="Skills">
-              {skills.map((skill) => <li className="rounded-full border border-zinc-200 px-3 py-1.5 text-sm text-zinc-700" key={skill}>{skill}</li>)}
-            </ul>
+      <section id="about" className="profile-section section-grid">
+        <div className="section-marker"><span>01</span><p>Profile</p></div>
+        <div className="profile-content">
+          <p className="kicker">How I work</p>
+          <h2>Complex requirements deserve a clear path through.</h2>
+          <div className="profile-columns">
+            <p>I build role-based web applications and developer tools with a focus on practical architecture, thoughtful interface design, and dependable delivery.</p>
+            <p>Currently completing an Engineering Degree in Computer Science at EMSI, I enjoy learning fast, simplifying hard problems, and making digital products feel intentional.</p>
           </div>
-        </div>
-      </section>
-
-      <section id="work" className="mx-auto max-w-6xl px-6 py-24 lg:px-8">
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <div>
-            <p className="text-sm font-semibold tracking-[0.18em] text-zinc-500 uppercase">Selected work</p>
-            <h2 className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-zinc-950 sm:text-5xl">Projects that solve real problems.</h2>
+          <div className="skill-cloud" aria-label="Technical skills">
+            {skills.map((skill, index) => <span className={index % 3 === 0 ? "skill-accent" : ""} key={skill}>{skill}</span>)}
           </div>
-          <p className="max-w-xs text-sm leading-6 text-zinc-500">Platforms and tools built around real workflows, reliable infrastructure, and maintainable technology.</p>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {projects.map((project, index) => (
-            <article className="group rounded-2xl border border-zinc-200 bg-white p-6 transition hover:-translate-y-1 hover:border-zinc-400" key={project.title}>
-              <p className="text-sm font-medium text-zinc-400">0{index + 1}</p>
-              <h3 className="mt-12 text-2xl font-semibold tracking-tight text-zinc-950">{project.title}</h3>
-              <p className="mt-3 leading-7 text-zinc-600">{project.description}</p>
-              <ul className="mt-6 flex flex-wrap gap-x-3 gap-y-1" aria-label={`${project.title} technologies`}>
-                {project.tech.map((tech) => <li className="text-sm text-zinc-500" key={tech}>{tech}</li>)}
-              </ul>
-            </article>
-          ))}
         </div>
       </section>
 
-      <section id="experience" className="border-y border-zinc-200 bg-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
-          <p className="text-sm font-semibold tracking-[0.18em] text-zinc-500 uppercase">Experience</p>
-          <div className="divide-y divide-zinc-200 border-t border-zinc-200">
-            {experience.map((item) => (
-              <article className="grid gap-4 py-7 sm:grid-cols-[1fr_auto]" key={item.company}>
-                <div>
-                  <h3 className="text-xl font-semibold tracking-tight text-zinc-950">{item.role}</h3>
-                  <p className="mt-1 font-medium text-zinc-600">{item.company}</p>
-                  <p className="mt-4 max-w-2xl leading-7 text-zinc-600">{item.summary}</p>
+      <section id="work" className="work-section section-grid">
+        <div className="section-marker"><span>02</span><p>Selected work</p></div>
+        <div className="work-content">
+          <div className="work-heading">
+            <p className="kicker">A selection of systems</p>
+            <h2>Work with a reason to exist.</h2>
+            <p>Every project starts with a workflow worth improving—then turns it into a coherent, maintainable experience.</p>
+          </div>
+          <div className="project-list">
+            {projects.map((project) => (
+              <article className="project-row" key={project.title}>
+                <p className="project-number">{project.number}</p>
+                <div className="project-main">
+                  <p className="project-label">{project.label}</p>
+                  <h3>{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <ul className="project-tech" aria-label={`${project.title} technologies`}>
+                    {project.tech.map((tech) => <li key={tech}>{tech}</li>)}
+                  </ul>
                 </div>
-                <p className="text-sm text-zinc-500">{item.period}</p>
+                <span className="project-arrow" aria-hidden="true">↗</span>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="bg-zinc-950 text-white">
-        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-10 px-6 py-24 sm:flex-row sm:items-end lg:px-8">
-          <div>
-            <p className="text-sm font-semibold tracking-[0.18em] text-zinc-400 uppercase">Contact</p>
-            <h2 className="mt-4 max-w-2xl text-4xl font-semibold tracking-[-0.04em] sm:text-6xl">Have a project in mind?</h2>
+      <section id="experience" className="experience-section section-grid">
+        <div className="section-marker"><span>03</span><p>Experience</p></div>
+        <div className="experience-content">
+          <p className="kicker">Where I learned to ship</p>
+          <h2>Building alongside real teams.</h2>
+          <div className="experience-list">
+            {experience.map((item) => (
+              <article className="experience-row" key={item.company}>
+                <div className="timeline-dot" aria-hidden="true" />
+                <p className="experience-period">{item.period}</p>
+                <div>
+                  <h3>{item.role}</h3>
+                  <p className="experience-company">{item.company}</p>
+                  <p className="experience-summary">{item.summary}</p>
+                </div>
+              </article>
+            ))}
           </div>
-          <a className="w-fit rounded-full bg-white px-5 py-3 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200" href="mailto:abasside1234@gmail.com">Get in touch</a>
         </div>
       </section>
 
-      <footer className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-6 text-sm text-zinc-500 sm:flex-row sm:justify-between lg:px-8">
-        <p>© {new Date().getFullYear()} Mouad Abbassid.</p>
-        <div className="flex gap-4">
-          <a className="transition hover:text-zinc-950" href="https://github.com/Nyckboy" target="_blank" rel="noreferrer">GitHub</a>
-          <a className="transition hover:text-zinc-950" href="https://www.linkedin.com/in/mouadabbassid/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <section id="contact" className="contact-section">
+        <p className="kicker">Start a conversation</p>
+        <h2>Have a system<br /><em>worth building?</em></h2>
+        <a className="contact-email" href="mailto:abasside1234@gmail.com">abasside1234@gmail.com <span aria-hidden="true">↗</span></a>
+        <div className="contact-orbit" aria-hidden="true">LET&apos;S BUILD • LET&apos;S BUILD • LET&apos;S BUILD •</div>
+      </section>
+
+      <footer className="site-footer">
+        <p>© {new Date().getFullYear()} Mouad Abbassid</p>
+        <div>
+          <a href="https://github.com/Nyckboy" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/mouadabbassid/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </div>
+        <a href="#home">Back to top ↑</a>
       </footer>
     </main>
   );
