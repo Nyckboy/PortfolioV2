@@ -6,6 +6,7 @@ const projects = [
       "Transforms Arabic polling-list PDFs into normalized, searchable PostgreSQL records with asynchronous imports, audit logs, and right-to-left search.",
     tech: ["FastAPI", "PostgreSQL", "React", "TypeScript", "Docker", "Nginx"],
     label: "Data systems",
+    links: [],
   },
   {
     number: "02",
@@ -14,6 +15,7 @@ const projects = [
       "A lightweight infrastructure-monitoring tool for tracking real-time virtual-server metrics and performance.",
     tech: ["Python", "Linux", "VPS"],
     label: "Infrastructure",
+    links: [],
   },
   {
     number: "03",
@@ -22,6 +24,10 @@ const projects = [
       "A charity-management application shaped around dependable backend architecture and automated delivery.",
     tech: ["Spring Boot", "Jenkins", "Docker", "Nginx"],
     label: "Delivery systems",
+    links: [
+      { label: "Live demo", href: "https://gestioncharite.mouadabbassid.com/" },
+      { label: "Source code", href: "https://github.com/Nyckboy/GestionCharite" },
+    ],
   },
   {
     number: "04",
@@ -30,6 +36,9 @@ const projects = [
       "A network application with bidirectional synchronization and local state persistence for responsive conversations.",
     tech: ["Node.js", "Socket.io", "SQLite"],
     label: "Real-time",
+    links: [
+      { label: "Source code", href: "https://github.com/Nyckboy/whatsappClone" },
+    ],
   },
 ];
 
@@ -45,6 +54,10 @@ const experience = [
     period: "Jul 2026 — Sep 2026",
     summary:
       "Role-based project operations platform covering tasks, progress, deliverables, comments, notifications, and CI/CD automation.",
+    links: [
+      { label: "Live demo", href: "https://ramdemo.mouadabbassid.com/login" },
+      { label: "Source code", href: "https://github.com/Nyckboy/digitalfactory-RAM" },
+    ],
   },
   {
     company: "IT Road",
@@ -52,8 +65,22 @@ const experience = [
     period: "Jul 2025 — Sep 2025",
     summary:
       "Secure Spring Boot APIs and PostgreSQL data models paired with responsive React and TypeScript interfaces.",
+    links: [],
   },
 ];
+
+function ExternalLinks({ name, links }: { name: string; links: { label: string; href: string }[] }) {
+  if (links.length === 0) return null;
+  return (
+    <ul className="external-links" aria-label={`${name} links`}>
+      {links.map((link) => (
+        <li key={link.href}>
+          <a href={link.href} target="_blank" rel="noreferrer">{link.label} <span aria-hidden="true">↗</span></a>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function Home() {
   return (
@@ -137,8 +164,8 @@ export default function Home() {
                   <ul className="project-tech" aria-label={`${project.title} technologies`}>
                     {project.tech.map((tech) => <li key={tech}>{tech}</li>)}
                   </ul>
+                  <ExternalLinks name={project.title} links={project.links} />
                 </div>
-                <span className="project-arrow" aria-hidden="true">↗</span>
               </article>
             ))}
           </div>
@@ -159,6 +186,7 @@ export default function Home() {
                   <h3>{item.role}</h3>
                   <p className="experience-company">{item.company}</p>
                   <p className="experience-summary">{item.summary}</p>
+                  <ExternalLinks name={item.company} links={item.links} />
                 </div>
               </article>
             ))}
