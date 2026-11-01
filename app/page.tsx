@@ -82,6 +82,22 @@ function ExternalLinks({ name, links }: { name: string; links: { label: string; 
   );
 }
 
+const stackLayers = [
+  { name: "Interface", tools: "React / TypeScript" },
+  { name: "Services", tools: "Spring Boot / FastAPI" },
+  { name: "Data", tools: "PostgreSQL" },
+  { name: "Infrastructure", tools: "Docker / Nginx / Linux" },
+];
+
+const stackRings = [
+  { radius: 208, node: { x: 93, y: 93 }, leaderEnd: { x: 58, y: 44 } },
+  { radius: 166, node: { x: 357.4, y: 122.6 }, leaderEnd: { x: 422, y: 44 } },
+  { radius: 124, node: { x: 327.7, y: 327.7 }, leaderEnd: { x: 422, y: 436 } },
+  { radius: 82, node: { x: 182, y: 298 }, leaderEnd: { x: 58, y: 436 } },
+];
+
+const signalRoute = "M93 93 A187 187 0 0 1 357.4 122.6 A145 145 0 0 1 327.7 327.7 A103 103 0 0 1 182 298 A45 45 0 0 1 240 240";
+
 export default function Home() {
   return (
     <main className="portfolio-shell">
@@ -119,13 +135,29 @@ export default function Home() {
             <a className="button button-quiet" href="/documents/Mouad_Abbassid_Full_Stack_Resume.pdf" target="_blank" rel="noreferrer">Download CV <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <div className="signal-field" aria-label="Mouad Abbassid, full-stack developer">
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="signal-core">MA</div>
-          <p className="signal-label label-top">SYSTEMS<br />THINKING</p>
-          <p className="signal-label label-right">INTERFACE<br />CRAFT</p>
-          <p className="signal-label label-bottom">SHIPPED<br />WITH CARE</p>
+        <div className="signal-field">
+          <svg className="stack-map" viewBox="0 0 480 480" aria-hidden="true">
+            {stackRings.map((ring) => (
+              <circle className="stack-ring" cx="240" cy="240" r={ring.radius} key={ring.radius} />
+            ))}
+            {stackRings.map((ring) => (
+              <line className="stack-leader" x1={ring.node.x} y1={ring.node.y} x2={ring.leaderEnd.x} y2={ring.leaderEnd.y} key={ring.radius} />
+            ))}
+            <path className="stack-route" d={signalRoute} />
+            {stackRings.map((ring, index) => (
+              <circle className={`stack-node stack-step-${index + 1}`} cx={ring.node.x} cy={ring.node.y} r="5" key={ring.radius} />
+            ))}
+            <circle className="stack-pulse" r="6" style={{ offsetPath: `path("${signalRoute}")` }} />
+          </svg>
+          <div className="signal-core" aria-hidden="true"><span>Live</span>200 OK</div>
+          <ol className="stack-layers" aria-label="Technology stack, from interface to infrastructure">
+            {stackLayers.map((layer, index) => (
+              <li className={`stack-layer stack-step-${index + 1}`} key={layer.name}>
+                <strong>{layer.name}</strong>
+                {layer.tools}
+              </li>
+            ))}
+          </ol>
         </div>
         <div className="scroll-mark"><span /> Scroll to explore</div>
       </section>
