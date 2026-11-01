@@ -96,7 +96,7 @@ const stackRings = [
   { radius: 82, node: { x: 182, y: 298 }, leaderEnd: { x: 58, y: 436 } },
 ];
 
-const signalRoute = "M93 93 A187 187 0 0 1 357.4 122.6 A145 145 0 0 1 327.7 327.7 A103 103 0 0 1 182 298 A45 45 0 0 1 240 240";
+const signalRoute = "M93 93 A187 187 0 0 1 357.4 122.6 A145 145 0 0 1 327.7 327.7 A103 103 0 0 1 182 298 A61 61 0 0 1 211.7 211.7";
 
 export default function Home() {
   return (
@@ -147,13 +147,15 @@ export default function Home() {
             {stackRings.map((ring, index) => (
               <circle className={`stack-node stack-step-${index + 1}`} cx={ring.node.x} cy={ring.node.y} r="5" key={ring.radius} />
             ))}
-            <circle className="stack-pulse" r="6" style={{ offsetPath: `path("${signalRoute}")` }} />
+            <g className="stack-pulse-orbit">
+              <circle className="stack-pulse" cx="240" cy="240" r="6" />
+            </g>
           </svg>
           <div className="signal-core" aria-hidden="true"><span>Live</span>200 OK</div>
           <ol className="stack-layers" aria-label="Technology stack, from interface to infrastructure">
             {stackLayers.map((layer, index) => (
               <li className={`stack-layer stack-step-${index + 1}`} key={layer.name}>
-                <strong>{layer.name}</strong>
+                <strong>{layer.name}<span aria-hidden="true">{layer.name}</span></strong>
                 {layer.tools}
               </li>
             ))}
